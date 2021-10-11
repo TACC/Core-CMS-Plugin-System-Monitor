@@ -1,5 +1,5 @@
 ## Texas Advanced Computing Center
-# Django CMS Plugin: "Plugin Name"
+# Django CMS Plugin: "System Monitor"
 
 This plugin [does something].
 
