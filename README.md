@@ -3,40 +3,23 @@
 
 This plugin [does something].
 
-- __`__plugin_name__`__: `taccsite_example`
-- __`__PluginName__`__: `TaccsiteExample`
-- __"Plugin Name"__: "Example"
-
-## For Plugin Developer
-
-After cloning this repository for your plugin:
-
-1. Follow https://github.com/tacc-wbomar/Core-CMS-Plugin/wiki/Core-CMS-Plugin-Development-Quick-Start.
-2. Remove this section from your repository's `README.md`.
-
+- __`__plugin_name__`__: `taccsite_system_monitor`
+- __`__PluginName__`__: `TaccsiteSystemMonitor`
+- __"Plugin Name"__: "System Monitor"
 
 ## Quick Start
 
 1. Follow https://github.com/tacc-wbomar/Core-CMS-Plugin/wiki/Core-CMS-Plugin-Usage-Quick-Start.
 
-> The next steps are sample steps that should be replaced with plugin-specific steps, if any.
+## Usage
 
-2. Any step that is specific to the plugin, such as the steps after this.
+1. Add instance of plugin to a page.
+1. Choose the system to monitor.
+1. See plugin render system information.
 
-    ```
-    # provide minimal example code that may help the reader
-    ```
+## Features
 
-3. Add a URLconf in your Django project's `urls.py` like this:
+1. Renders available data from chosen system.
+1. Supports systems Frontera, Stampede2, Maverick2, [and more][system-list].
 
-    ```
-        url(r'^sysmon/', include('__plugin_name__.urls')),
-    ```
-
-4. Add `__plugin_name_some_prop__` property and value to your Django project's settings:
-
-    ```
-    __plugin_name_some_prop__ = 'specific_value'
-    ```
-
-5. Visit [http://your.project.url.host/some_plugin_url_path/](http://127.0.0.1:8000/ "The URL for your environment may be different than this.").
+[system-list]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/blob/main/taccsite_system_monitor/models.py

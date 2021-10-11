@@ -8,14 +8,14 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='__plugin_name__',
+    name='taccsite_system_monitor',
     version='0.1',
     packages=find_packages(),
     include_package_data=True,
     license='BSD License',
-    description='A DjangoCMS plugin (for TACC Core CMS) to ______.',
+    description='A DjangoCMS plugin (for TACC Core CMS) to render a system monitor.',
     long_description=README,
-    url='https://github.com/TACC/__Repo_Name__/',
+    url='https://github.com/TACC/Core-CMS-Plugin-System-Monitor/',
     author='Wesley Bomar',
     author_email='wbomar@tacc.utexas.edu',
     # SEE: https://pypi.org/classifiers/
