@@ -22,4 +22,13 @@ This plugin [does something].
 1. Renders available data from chosen system.
 1. Supports systems Frontera, Stampede2, Maverick2, [and more][system-list].
 
+## Caveats
+
+The markup assumes the availability of styles for two third-party components:
+
+- [`iconworks`](https://icon-works.com/)
+- [`badge`](https://getbootstrap.com/docs/4.0/components/badge/)
+
+
+
 [system-list]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/blob/main/taccsite_system_monitor/models.py

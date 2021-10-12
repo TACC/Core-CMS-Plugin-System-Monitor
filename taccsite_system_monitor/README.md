@@ -10,3 +10,6 @@ This is a _minimal_ conversion of the Frontera Sysmon snippet to a Django CMS pl
 ## To Do
 
 - [GH-295](https://github.com/TACC/Core-CMS/issues/295)
+- Remove assumption of existing styles for certain classes:
+    - [`iconworks`](https://icon-works.com/)
+    - [`badge`](https://getbootstrap.com/docs/4.0/components/badge/)
