@@ -24,10 +24,9 @@ This plugin [does something].
 
 ## Caveats
 
-The markup assumes the availability of styles for two third-party components:
-
-- [`iconworks`](https://icon-works.com/)
-- [`badge`](https://getbootstrap.com/docs/4.0/components/badge/)
+1. The markup assumes the availability of styles for two third-party components:
+    - [`iconworks`](https://icon-works.com/)
+    - [`badge`](https://getbootstrap.com/docs/4.0/components/badge/)
 
 
 
