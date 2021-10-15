@@ -3,8 +3,8 @@
 
 This plugin [does something].
 
-- __`__dist-name__`__: `taccsite_system_monitor`
-- __`__package_name__`__: `taccsite_system_monitor`
+- __`__dist-name__`__: `djangocms-tacc-system-monitor`
+- __`__package_name__`__: `djangocms_tacc_system_monitor`
 - __`__ClassName__`__: `TaccsiteSystemMonitor`
 - __"Plugin Name"__: "System Monitor"
 
@@ -31,4 +31,4 @@ This plugin [does something].
 
 
 
-[system-list]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/blob/main/taccsite_system_monitor/models.py
+[system-list]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/blob/main/djangocms_tacc_system_monitor/models.py

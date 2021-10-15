@@ -37,7 +37,7 @@
 
 {% block after_content %}
 <script type="module">
-  import { SystemMonitor } from '{% static "taccsite_system_monitor/js/system_monitor.js" %}';
+  import { SystemMonitor } from '{% static "djangocms_tacc_system_monitor/js/system_monitor.js" %}';
 
   const hostname = '{{ instance.system }}';
   const element = document.getElementById(
