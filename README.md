@@ -3,8 +3,9 @@
 
 This plugin [does something].
 
-- __`__plugin_name__`__: `taccsite_system_monitor`
-- __`__PluginName__`__: `TaccsiteSystemMonitor`
+- __`__dist-name__`__: `taccsite_system_monitor`
+- __`__package_name__`__: `taccsite_system_monitor`
+- __`__ClassName__`__: `TaccsiteSystemMonitor`
 - __"Plugin Name"__: "System Monitor"
 
 ## Quick Start
