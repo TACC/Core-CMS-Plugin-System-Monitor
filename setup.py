@@ -18,6 +18,7 @@ setup(
     url='https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/',
     author='Wesley Bomar',
     author_email='wbomar@tacc.utexas.edu',
+    # SEE: https://packaging.python.org/discussions/install-requires-vs-requirements/
     install_requires=[
         'Django>=2.2.16',
         'django-cms>=3.7.4',
