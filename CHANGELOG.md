@@ -24,9 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Major: [...] Do not reference taccsite_cms
 
-## [0.1.0]
+## [0.1.0] - 2021-11-29: Test Release
 
-v0.1.0 Initial test release
+Initial test release
 
 [unreleased]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/compare/v0.1.5...HEAD
 [0.1.5]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/releases/tag/v0.1.5
