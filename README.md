@@ -22,12 +22,23 @@ This plugin [does something].
 
 1. Renders available data from chosen system.
 1. Supports systems Frontera, Stampede2, Maverick2, [and more][system-list].
+1. Can render sample data.
+    <details><summary>To load sample data…</summary>
+
+    1. Load CMS on a `localhost` URL.
+    2. Choose system Frontera or Stampede.
+
+    </details>
 
 ## Caveats
 
 1. The markup assumes the availability of styles for two third-party components:
     - [`iconworks`](https://icon-works.com/)
     - [`badge`](https://getbootstrap.com/docs/4.0/components/badge/)
+1. The script assumes the availability of an API endpoint that returns JSON:
+    - URL: `/api/system-monitor`
+    - JSON: [live](https://frontera-portal.tacc.utexas.edu/api/system-monitor/) ([sample](taccsite_system_monitor/static/taccsite_system_monitor/js/system_monitor.js#L36))
+
 
 
 
