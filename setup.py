@@ -18,6 +18,10 @@ setup(
     url='https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/',
     author='Wesley Bomar',
     author_email='wbomar@tacc.utexas.edu',
+    install_requires=[
+        'Django>=2.2.16',
+        'django-cms>=3.7.4',
+    ],
     # SEE: https://pypi.org/classifiers/
     classifiers=[
         'Environment :: Web Environment',
