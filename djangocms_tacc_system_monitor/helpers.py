@@ -13,3 +13,10 @@ def get_choices(choice_dict):
         choices.append(choice)
 
     return choices
+
+# Concatenate a list of CSS classes
+# SEE: https://github.com/TACC/Core-CMS/blob/75b219c/taccsite_cms/contrib/helpers.py
+def concat_classnames(classes):
+    """Concatenate a list of classname strings (without failing on None)"""
+    # SEE: https://stackoverflow.com/a/20271297/11817077
+    return ' '.join(_class for _class in classes if _class)

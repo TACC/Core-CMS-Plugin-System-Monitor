@@ -6,7 +6,6 @@ from django.db import models
 from djangocms_attributes_field import fields
 
 from .helpers import get_choices
-
 from .constants import DEFAULT_SYSTEM
 
 # TODO: (Maybe in GH-295) Do not replicate `display_name` data from API

@@ -2,8 +2,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext as _
 
-from taccsite_cms.contrib.helpers import concat_classnames
-
+from .helpers import concat_classnames
 from .models import TaccsiteSystemMonitor
 
 @plugin_pool.register_plugin
