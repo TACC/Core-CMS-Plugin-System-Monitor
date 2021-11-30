@@ -5,7 +5,7 @@ from django.db import models
 
 from djangocms_attributes_field import fields
 
-from taccsite_cms.contrib.helpers import get_choices
+from .helpers import get_choices
 
 from .constants import DEFAULT_SYSTEM
 
