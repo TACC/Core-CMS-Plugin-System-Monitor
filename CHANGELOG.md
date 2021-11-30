@@ -19,6 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 v0.1.0 Initial test release
 
-[unreleased]: https://github.com/TACC/Core-CMS/compare/v0.1.1...HEAD
-[0.1.1]: https://github.com/TACC/Core-CMS/releases/tag/v0.1.1
-[0.1.0]: https://github.com/TACC/Core-CMS/releases/tag/v0.1.0
+[unreleased]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/releases/tag/v0.1.1
+[0.1.0]: https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/releases/tag/v0.1.0
