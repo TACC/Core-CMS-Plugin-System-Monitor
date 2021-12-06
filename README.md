@@ -38,7 +38,7 @@ This plugin [does something].
 1. The script assumes the availability of an API endpoint that returns JSON:
     - URL: `/api/system-monitor`
     - JSON: [live](https://frontera-portal.tacc.utexas.edu/api/system-monitor/) ([sample](taccsite_system_monitor/static/taccsite_system_monitor/js/system_monitor.js#L36))
-
+2. This plugin could use server-side logic instead. For details, see [app README.md](https://github.com/tacc-wbomar/Core-CMS-Plugin-System-Monitor/blob/main/djangocms_tacc_system_monitor/README.md).
 
 
 
