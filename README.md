@@ -26,7 +26,7 @@ This plugin renders a visual display of simple stats for a chosen system.
     <details><summary>To load sample data…</summary>
 
     1. Load CMS on a `localhost` URL.
-    2. Choose system Frontera or Stampede.
+    2. Via plugin, choose Frontera or Stampede system.
 
     </details>
 
