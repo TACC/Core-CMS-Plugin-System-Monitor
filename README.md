@@ -1,7 +1,7 @@
 ## Texas Advanced Computing Center
 # Django CMS Plugin: "System Monitor"
 
-This plugin [does something].
+This plugin renders a visual display of simple stats for a chosen system.
 
 - __`__dist-name__`__: `djangocms-tacc-system-monitor`
 - __`__package_name__`__: `djangocms_tacc_system_monitor`
