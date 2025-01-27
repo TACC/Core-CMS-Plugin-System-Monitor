@@ -10,6 +10,9 @@ from .constants import DEFAULT_SYSTEM
 
 # TODO: (Maybe in GH-295) Do not replicate `display_name` data from API
 SYSTEM_DICT = {
+    'vista.tacc.utexas.edu': {
+        'description': 'Vista'
+    },
     'frontera.tacc.utexas.edu': {
         'description': 'Frontera'
     },
