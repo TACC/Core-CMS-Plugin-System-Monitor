@@ -21,7 +21,7 @@ This plugin renders a visual display of simple stats for a chosen system.
 ## Features
 
 1. Renders available data from chosen system.
-1. Supports systems Frontera, Stampede2, Maverick2, [and more][system-list].
+1. Supports systems Vista, Frontera, Stampede2, Maverick2, [and more][system-list].
 1. Can render sample data.
     <details><summary>To load sample data…</summary>
 
