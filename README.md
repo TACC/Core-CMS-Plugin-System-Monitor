@@ -32,14 +32,9 @@ This plugin renders a visual display of simple stats for a chosen system.
 
 ## Caveats
 
-1. The markup assumes the availability of styles for two third-party components:
-    - [`iconworks`](https://icon-works.com/)
-    - [`badge`](https://getbootstrap.com/docs/4.0/components/badge/)
-1. The script assumes the availability of an API endpoint that returns JSON:
-    - URL: `/api/system-monitor`
-    - JSON: [live](https://frontera-portal.tacc.utexas.edu/api/system-monitor/) ([sample](taccsite_system_monitor/static/taccsite_system_monitor/js/system_monitor.js#L36))
-2. This plugin could use server-side logic instead. For details, see [app README.md](https://github.com/wesleyboar/Core-CMS-Plugin-System-Monitor/blob/main/djangocms_tacc_system_monitor/README.md).
+1. [Assumes Dependencies: Iconworks, Bootstrap](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues/2)
+2. [Assumes API Endpoint: `/api/system-monitor/`](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues/3)
+3. [Should Use Python Not JavaScript](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues/4)
 
 
-
-[system-list]: https://github.com/wesleyboar/Core-CMS-Plugin-System-Monitor/blob/main/djangocms_tacc_system_monitor/models.py
+[system-list]: https://github.com/TACC/Core-CMS-Plugin-System-Monitor/blob/v0.1.5/djangocms_tacc_system_monitor/models.py#L12-L25
