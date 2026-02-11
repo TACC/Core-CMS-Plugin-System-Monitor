@@ -6,7 +6,6 @@
  * @module systemMonitor
  */
 // GH-295: Use server-side logic instead of client-side
-// NOTE: If JavaScript is a long-term solution, then use a class.
 
 
 
@@ -33,7 +32,7 @@
  * Sample system data
  * @type {array<module:systemMonitor~System>}
  */
-const API_SAMPLE_DATA = JSON.parse('[{"hostname":"vista.tacc.utexas.edu","display_name":"Vista","ssh":{"type":"ssh","status":true,"timestamp":"2025-01-18T19:45:02Z"},"heartbeat":{"type":"heartbeat","status":true,"timestamp":"2025-01-18T19:45:02Z"},"status_tests":{"ssh":{"type":"ssh","status":true,"timestamp":"2025-01-18T19:45:02.176Z"},"heartbeat":{"type":"heartbeat","status":true,"timestamp":"2025-01-18T19:45:02.174Z"}},"resource_type":"compute","jobs":{"running":122,"queued":468,"other":64},"load_percentage":70,"cpu_count":172760,"cpu_used":168616,"is_operational":true},{"hostname":"frontera.tacc.utexas.edu","display_name":"Frontera","ssh":{"type":"ssh","status":true,"timestamp":"2021-07-30T19:45:02Z"},"heartbeat":{"type":"heartbeat","status":true,"timestamp":"2021-07-30T19:45:02Z"},"status_tests":{"ssh":{"type":"ssh","status":true,"timestamp":"2021-07-30T19:45:02.176Z"},"heartbeat":{"type":"heartbeat","status":true,"timestamp":"2021-07-30T19:45:02.174Z"}},"resource_type":"compute","jobs":{"running":322,"queued":1468,"other":364},"load_percentage":99,"cpu_count":472760,"cpu_used":468616,"is_operational":true},{"hostname":"stampede2.tacc.utexas.edu","display_name":"Stampede2","ssh":{"type":"ssh","status":true,"timestamp":"2021-07-30T19:45:03Z"},"heartbeat":{"type":"heartbeat","status":true,"timestamp":"2021-07-30T19:45:03Z"},"status_tests":{"heartbeat":{"type":"heartbeat","status":true,"timestamp":"2021-07-30T19:45:03.069Z"},"ssh":{"type":"ssh","status":true,"timestamp":"2021-07-30T19:45:03.074Z"}},"resource_type":"compute","jobs":{"running":0,"queued":1032,"other":444},"load_percentage":0,"cpu_count":1309056,"cpu_used":1257184,"is_operational":true}]');
+const API_SAMPLE_DATA = JSON.parse('[{"display_name": "Stampede3", "hostname": "stampede3.tacc.utexas.edu", "resource_type": "COMPUTE", "load_percentage": 86, "jobs": {"running": 486, "queued": 261}, "online": true, "reachable": true, "queues_down": false, "in_maintenance": false, "is_operational": true}, {"display_name": "Lonestar6", "hostname": "ls6.tacc.utexas.edu", "resource_type": "COMPUTE", "load_percentage": 99, "jobs": {"running": 356, "queued": 1238}, "online": true, "reachable": true, "queues_down": false, "in_maintenance": false, "is_operational": true}, {"display_name": "Frontera", "hostname": "frontera.tacc.utexas.edu", "resource_type": "COMPUTE", "load_percentage": 92, "jobs": {"running": 400, "queued": 35}, "online": true, "reachable": true, "queues_down": false, "in_maintenance": false, "is_operational": true}, {"display_name": "Vista", "hostname": "vista.tacc.utexas.edu", "resource_type": "COMPUTE", "load_percentage": 100, "jobs": {"running": 208, "queued": 41}, "online": true, "reachable": true, "queues_down": false, "in_maintenance": false, "is_operational": true}]');
 /**
  * The URL of the API endpoint
  * @type {string}
@@ -111,11 +110,7 @@ export class SystemMonitor {
    * @return {boolean}
    */
   isOperational(system) {
-    if (system['load_percentage'] < 1 || system['load_percentage'] > 99) {
-      system['load_percentage'] = 0;
-      return system['jobs']['running'] > 1;
-    }
-    return true;
+    return (system['is_operational'] === true);
   }
 
   /**
@@ -124,9 +119,7 @@ export class SystemMonitor {
    * @return {HTMLElement}
    */
   getElement(id) {
-    // NOTE: To permit multiple instances,
-    //       an ID must be reusable across instances,
-    //       so `document.getElementById` SHOULD NOT be used.
+    // To permit multiple instances, we must NOT use `id` attribute
     return this.domElement.querySelector(`[data-id="${id}"]`);
   }
 
@@ -141,7 +134,7 @@ export class SystemMonitor {
    * Style system status
    * @param {string} type - A type: "warning"
    */
-  setStatusStyle(type) {
+  populateStatus(type) {
     const element = this.getElement('status');
 
     switch (type) {
@@ -157,53 +150,43 @@ export class SystemMonitor {
   }
 
   /**
-   * Populate system status content in markup
-   * @param {module:systemMonitor~System} status
+   * Populate system load
+   * @param {module:systemMonitor~System} system
    */
-  setStatusMarkup(status) {
+  populateLoad(system) {
     this.getElement('load_percentage').innerHTML =
-      status['load_percentage'] + '%';
+      system['load_percentage'] + '%';
     this.getElement('jobs_running').innerHTML =
-      status['jobs']['running'];
+      system['jobs']['running'];
     this.getElement('jobs_queued').innerHTML =
-      status['jobs']['queued'];
-  }
-
-  /**
-   * Populate system status in UI
-   * @param {module:systemMonitor~System} status
-   */
-  setStatus(status) {
-    const isFound = status;
-    const isWorking = this.isOperational(status);
-
-    if (isFound && isWorking) {
-      this.setStatusMarkup(status);
-    } else {
-      this.setStatusStyle('warning');
-      if (isFound) {
-        this.setStatusMarkup(status);
-      }
-    }
-    this.showStatus();
+      system['jobs']['queued'];
   }
 
   /**
    * Populate monitor based on data
-   * @param {module:systemMonitor~AllSystems} systems
+   * @param {module:systemMonitor~AllSystems} availableSystems
    */
-  populate(systems) {
-    let status;
+  populate(availableSystems) {
+    const system = availableSystems.find(
+      (availableSystem) => availableSystem['hostname'] === this.hostname
+    );
+    const isOperational = this.isOperational(system);
 
-    systems.forEach((system) => {
-      if (system['hostname'] === this.hostname) {
-        status = system;
-        console.info(`System Monitor: System found (${this.hostname})`);
-        return false;
+    if (system) {
+      console.info(`System Monitor: System found (${this.hostname})`);
+    } else {
+      console.error(`System Monitor: System not found (${this.hostname})`);
+    }
+
+    if (system && isOperational) {
+      this.populateLoad(system);
+    } else {
+      this.populateStatus('warning');
+      if (system) {
+        this.populateLoad(system);
       }
-    });
-
-    this.setStatus(status);
+    }
+    this.showStatus();
   }
 
   /* Initialize (if using a class, Constructor) */
