@@ -9,4 +9,4 @@ This is a _minimal_ conversion of the Frontera Sysmon snippet to a Django CMS pl
 
 ## To Do
 
-Issues #2, #3, #4 ([if not already completed](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues?q=is%3Aissue%20is%3Aopen%20created%3A2025-01-28%20))
+Issues #2, #3 ([if not already completed](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues?q=is%3Aissue%20is%3Aopen%20created%3A2025-01-28%20))

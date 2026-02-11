@@ -15,26 +15,19 @@ This plugin renders a visual display of simple stats for a chosen system.
 ## Usage
 
 1. Add instance of plugin to a page.
-1. Choose the system to monitor.
-1. See plugin render system information.
+2. Choose the system to monitor.
+3. See plugin render system information.
 
 ## Features
 
 1. Renders available data from chosen system.
-1. Supports [specific systems][system-list] e.g. Vista, Frontera.
-1. Can render sample data.
-    <details><summary>To load sample data…</summary>
-
-    1. Load CMS on a `localhost` URL.
-    2. Via plugin, choose Frontera or Stampede system.
-
-    </details>
+2. Supports [specific systems][system-list] e.g. Vista, Frontera.
+3. Can render sample data on `localhost` (assumes API is unavailable).
 
 ## Caveats
 
 1. [Assumes Dependencies: Iconworks, Bootstrap](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues/2)
 2. [Assumes API Endpoint: `/api/system-monitor/`](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues/3)
-3. [Should Use Python Not JavaScript](https://github.com/TACC/Core-CMS-Plugin-System-Monitor/issues/4)
 
 
 [system-list]: https://github.com/TACC/Core-CMS-Plugin-System-Monitor/blob/v0.3.0/djangocms_tacc_system_monitor/models.py#L12-L25
