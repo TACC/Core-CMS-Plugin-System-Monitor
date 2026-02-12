@@ -2,7 +2,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext as _
 
-from .helpers import concat_classnames
+from .helpers import concat_classnames, get_system_data
 from .models import TaccsiteSystemMonitor
 
 @plugin_pool.register_plugin
@@ -22,8 +22,8 @@ class TaccsiteSystemMonitorPlugin(CMSPluginBase):
 
     fieldsets = [
         (_('Single System'), {
-            # NOTE: Can GH-295 fix the reload caveat?
-            'description': 'Only a single system may be shown. After editing this plugin, reload the page to load system data.',
+            # TODO: Support showing multiple systems
+            'description': 'Show the status of which single system?',
             'fields': (
                 'system',
             )
@@ -47,5 +47,16 @@ class TaccsiteSystemMonitorPlugin(CMSPluginBase):
             instance.attributes.get('class'),
         ])
         instance.attributes['class'] = classes
+
+        api_url = request.build_absolute_uri('/api/system-monitor/')
+        use_sample = request.get_host().split(':')[0] == 'localhost'
+        system_data = get_system_data(api_url, instance.system, use_sample_on_failure=use_sample)
+
+        if system_data:
+            context['system_data'] = system_data
+            context['system_status'] = 'operational' if system_data.get('is_operational') else 'warning'
+        else:
+            context['system_data'] = None
+            context['system_status'] = 'warning'
 
         return context
