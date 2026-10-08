@@ -10,7 +10,7 @@ This plugin renders a visual display of simple stats for a chosen system.
 
 ## Quick Start
 
-1. Follow https://github.com/TACC/Django-App/wiki/Usage-Quick-Start.
+1. Follow [(wiki) Usage Quick Start](https://github.com/TACC/Django-App/wiki/Usage-Quick-Start).
 
 ## Usage
 
